@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. 全局平滑切页配置（核心硬核：一滑一页）
+   1. 全局初始化与强制全屏滚动滚动（CSS Scroll Snapping）
    ========================================================================== */
 * {
     margin: 0;
@@ -9,14 +9,15 @@
 
 html {
     scroll-behavior: smooth;
-    /* 激活全屏滚动捕捉 */
+    /* 核心启动：纵向强制捕捉一整屏 */
     scroll-snap-type: y mandatory;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #333;
     overflow-x: hidden;
+    background-color: #fffcf4;
 }
 
 .section {
@@ -25,8 +26,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10%;
-    /* 强制每一页对齐屏幕边缘 */
+    padding: 0 8%;
+    /* 强制让每一幕在滚动停止时完美对齐屏幕顶部 */
     scroll-snap-align: start;
     position: relative;
 }
@@ -37,38 +38,40 @@ body {
     text-align: center;
 }
 
-/* 通用标题样式 */
+/* 统一各幕标题 */
 .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.6rem;
+    margin-bottom: 12px;
     letter-spacing: 2px;
 }
 .section-subtitle {
     font-size: 1.1rem;
-    opacity: 0.8;
-    margin-bottom: 50px;
+    opacity: 0.75;
+    margin-bottom: 45px;
 }
 
 /* ==========================================================================
-   风格一：首页 · 温暖、阳光、积极（晨曦暖阳风）
+   第一幕：首页 · 晨曦暖阳风格（粉橘温暖渐变）
    ========================================================================== */
 .section-warm {
-    background: linear-gradient(135deg, #fffcf4 0%, #ffe9d6 100%);
+    background: linear-gradient(135deg, #fff5eb 0%, #ffe3d1 50%, #ffd2cc 100%);
 }
 
 .greeting {
-    font-size: 1.5rem;
-    color: #d97706;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #eab308;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .my-name {
-    font-size: 4.5rem;
-    color: #1e293b;
+    font-size: 4.8rem;
+    color: #0f172a;
     font-weight: 800;
     margin-bottom: 25px;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
 }
 
 .slogan-box {
@@ -76,26 +79,28 @@ body {
     padding-left: 20px;
     display: inline-block;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+}
+
+.slogan-zh {
+    font-size: 1.6rem;
+    color: #ea580c;
+    font-weight: 600;
+    letter-spacing: 6px;
 }
 
 .slogan-en {
     font-family: "Georgia", serif;
     font-style: italic;
-    font-size: 1.6rem;
-    color: #ea580c;
-}
-
-.slogan-zh {
-    font-size: 1.2rem;
-    color: #475569;
-    margin-top: 5px;
-    letter-spacing: 4px;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 6px;
 }
 
 .intro-p {
-    font-size: 1.1rem;
-    color: #64748b;
+    font-size: 1.15rem;
+    color: #475569;
+    line-height: 1.6;
 }
 
 .scroll-arrow {
@@ -104,12 +109,13 @@ body {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.9rem;
-    color: #f97316;
+    color: #ea580c;
+    font-weight: 500;
     animation: bounce 2s infinite;
 }
 
 /* ==========================================================================
-   风格二：试验场 · 诙谐、阳光（向日葵活力风）
+   第二幕：试验场 · 向日葵活力风格（明黄绿意自嘲）
    ========================================================================== */
 .section-witty {
     background: linear-gradient(135deg, #f0fdf4 0%, #fef08a 100%);
@@ -119,50 +125,50 @@ body {
 
 .timeline {
     text-align: left;
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     border-left: 3px dashed #16a34a;
-    padding-left: 30px;
+    padding-left: 35px;
 }
 
 .time-node {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     position: relative;
 }
 
 .time-node::before {
     content: '⚡';
     position: absolute;
-    left: -41px;
+    left: -47px;
     top: 2px;
     background: #fef08a;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .node-year {
-    font-weight: bold;
+    font-weight: 700;
     color: #15803d;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .node-desc {
-    color: #374151;
+    color: #334155;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ==========================================================================
-   风格三：叠甲过程 · 严谨、理性（黑客帝国/硬核数仓深色风）
+   第三幕：叠甲过程 · 深海极客风格（硬核赛博深蓝）
    ========================================================================== */
 .section-rigorous {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
     color: #f8fafc;
 }
 
 .section-rigorous .section-title { color: #38bdf8; }
-.section-rigorous .section-subtitle { font-family: monospace; color: #94a3b8; }
+.section-rigorous .section-subtitle { font-family: monospace; color: #64748b; }
 
 .project-grid {
     display: grid;
@@ -171,145 +177,154 @@ body {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
     padding: 30px 25px;
     text-align: left;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(56, 189, 248, 0.08);
     border-color: #38bdf8;
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
 }
 
 .card-badge {
     background: #38bdf8;
     color: #0f172a;
     font-size: 0.75rem;
-    font-weight: bold;
-    padding: 3px 10px;
+    font-weight: 700;
+    padding: 3px 12px;
     border-radius: 20px;
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
 }
 
 .project-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
     color: #fff;
 }
 
 .project-card p {
     font-size: 0.9rem;
-    color: #cbd5e1;
+    color: #94a3b8;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .card-link {
     font-size: 0.85rem;
     color: #38bdf8;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* ==========================================================================
-   风格四：闲暇时光 · 童趣、萌系（马卡龙治愈风）
+   第四幕：闲暇时光 · 星空草莓风格（浪漫治愈马卡龙）
    ========================================================================== */
 .section-playful {
-    background: linear-gradient(135deg, #e0f2fe 0%, #fbcfe8 100%);
+    background: linear-gradient(135deg, #e0f2fe 0%, #fce7f3 100%);
 }
 
-.section-playful .section-title { color: #db2777; font-family: 'Comic Sans MS', sans-serif; }
+.section-playful .section-title { color: #db2777; font-weight: 800; }
 
 .diary-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 650px;
-    margin: 0 auto 40px auto;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
 }
 
 .diary-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 16px;
-    padding: 20px 25px;
+    padding: 22px 28px;
     text-align: left;
-    box-shadow: 0 4px 10px rgba(219, 39, 119, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(219, 39, 119, 0.03);
 }
 
-.diary-date {
+.diary-tag {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     color: #be185d;
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .diary-card p {
-    color: #4b5563;
+    color: #475569;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .mini-footer {
     font-size: 0.85rem;
-    color: #71717a;
+    color: #94a3b8;
+    letter-spacing: 1px;
 }
 
 /* ==========================================================================
-   4. 右侧全局进度指示点样式
+   5. 右侧悬浮“进度条圆点”系统
    ========================================================================== */
 .page-indicator {
     position: fixed;
-    right: 30px;
+    right: 35px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     z-index: 100;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    background: rgba(0, 0, 0, 0.2);
+    width: 10px;
+    height: 10px;
+    background: rgba(15, 23, 42, 0.2);
     border-radius: 50%;
     position: relative;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
-/* 严谨深色页时自动切换圆点颜色 */
+/* 当页面滑到第三幕深色页时，圆点自动变成亮白色，防冲突 */
 .section-rigorous ~ .page-indicator .dot {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .dot.active {
     background: #ea580c;
-    transform: scale(1.3);
+    transform: scale(1.4);
 }
 
-/* 圆点悬停文字提示 */
+.section-rigorous ~ .page-indicator .dot.active {
+    background: #38bdf8;
+}
+
+/* 悬停展示剧本名 */
 .dot::after {
     content: attr(data-title);
     position: absolute;
-    right: 25px;
+    right: 28px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.8);
+    background: rgba(15, 23, 42, 0.85);
     color: #fff;
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 6px;
     font-size: 0.75rem;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s ease;
 }
 
 .dot:hover::after {
@@ -317,10 +332,25 @@ body {
 }
 
 /* ==========================================================================
-   5. 动画特效
+   6. 动画系统
    ========================================================================== */
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-    40% { transform: translate(-50%, -10px); }
-    60% { transform: translate(-50%, -5px); }
+    40% { transform: translate(-50%, -8px); }
+    60% { transform: translate(-50%, -4px); }
 }

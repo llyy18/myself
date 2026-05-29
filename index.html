@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- 右侧固定悬浮的“剧本进度条” -->
     <div class="page-indicator">
         <a href="#page1" class="dot active" data-title="首页 · 启航"></a>
         <a href="#page2" class="dot" data-title="试验场 · 进化"></a>
@@ -15,19 +16,22 @@
         <a href="#page4" class="dot" data-title="闲暇 · 蓄能"></a>
     </div>
 
+    <!-- 第一幕：首页 · 晨曦暖阳 -->
     <section id="page1" class="section section-warm">
-        <div class="content animated-fade">
+        <div class="content fade-in-up">
             <p class="greeting">Hello World, 我是</p>
             <h1 class="my-name">Iris Yang</h1>
             <div class="slogan-box">
-                <p class="slogan-en">"Keep it real, chase the thrill."</p>
                 <p class="slogan-zh">保持真诚，奔赴热爱</p>
+                <p class="slogan-en">"Keep it real, chase the thrill."</p>
             </div>
             <p class="intro-p">阳光洒在键盘上的温度，就是我和这个世界对话的起点。</p>
+            <p class="intro-p" style="margin-top: 10px;">在数据的汪洋里，我选择用最真的心，解最复杂的谜。</p>
             <div class="scroll-arrow">↓ 向上滑动，解密小杨的平行宇宙</div>
         </div>
     </section>
 
+    <!-- 第二幕：小杨的试验场 · 向日葵与极客 -->
     <section id="page2" class="section section-witty">
         <div class="content">
             <h2 class="section-title">🧪 小杨的试验场</h2>
@@ -35,31 +39,33 @@
 
             <div class="timeline">
                 <div class="time-node">
-                    <span class="node-year">2018 · 起航</span>
-                    <p class="node-desc">北交大硕士毕业，怀揣着改变世界的梦想（和还没掉的头发），一脚踹进数据汪洋。</p>
+                    <span class="node-year">2018 · 启航篇</span>
+                    <p class="node-desc">北交大硕士毕业，怀揣着改变世界的梦想（以及还没掉的头发），一脚踹进航空航天的数据汪洋，开始搭建云端数据流。</p>
                 </div>
                 <div class="time-node">
-                    <span class="node-year">2018 - 2023 · 闯荡</span>
-                    <p class="node-desc">从航空航天的大型云端数据流，到在线教育的百万级长尾指标，疯狂刷怪升级。</p>
+                    <span class="node-year">2018 - 2023 · 闯荡篇</span>
+                    <p class="node-desc">在教育科技的百万级用户长尾指标里极限冲浪，擅长把混乱的业务需求理得比猫毛还顺。</p>
                 </div>
                 <div class="time-node">
-                    <span class="node-year">2023 - 2025 · 掌舵</span>
-                    <p class="node-desc">在光大银行化身“催命 PM”与“数仓推演家”，日常在‘这不合理’与‘这居然跑通了’之间极限拉扯。</p>
+                    <span class="node-year">2023 - 2025 · 掌舵篇</span>
+                    <p class="node-desc">化身顶级银行的“催命 PM”与“数仓推演家”，日常在‘这不合理’与‘这居然跑通了’之间极限拉扯。</p>
                 </div>
                 <div class="time-node">
-                    <span class="node-year">2025.07 - Now · 进化中</span>
-                    <p class="node-desc">开启高含金量 Gap 状态！目前正专注于把一只黑猫培养成网红、把 SQL 玩出艺术感，以及高调寻找下一个 WLB 的欧企港湾。</p>
+                    <span class="node-year">2025.07 - Now · 进化篇</span>
+                    <p class="node-desc">开启高含金量 Gap 状态！目前正专注于把一只黑猫培养成赛博网红、把高级 SQL 窗口函数玩出艺术感，以及高调寻找下一个 WLB 的欧洲外企港湾。</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 第三幕：小杨的叠甲过程 · 深海极客 -->
     <section id="page3" class="section section-rigorous">
         <div class="content">
             <h2 class="section-title">🛡️ 小杨的叠甲过程</h2>
             <p class="section-subtitle">SELECT * FROM Iris_Capabilities WHERE state = 'Excellent'</p>
 
             <div class="project-grid">
+                <!-- 甲片 A（跳转到你的代码复盘/GitHub） -->
                 <a href="https://github.com" target="_blank" class="project-card">
                     <div class="card-badge">Data Science</div>
                     <h3>千万级多源错位数据清洗项目</h3>
@@ -67,6 +73,7 @@
                     <span class="card-link">查看技术复盘 →</span>
                 </a>
 
+                <!-- 甲片 B（跳转到你的方法论展示） -->
                 <a href="https://github.com" target="_blank" class="project-card">
                     <div class="card-badge">PMO & Agile</div>
                     <h3>跨部门卓越运营与流程标准化</h3>
@@ -74,9 +81,10 @@
                     <span class="card-link">查看管理方法论 →</span>
                 </a>
 
-                <a href="https://github.com" target="_blank" class="project-card">
+                <!-- 甲片 C（跳转到你的建站日志） -->
+                <a href="#" class="project-card">
                     <div class="card-badge">Personal IP</div>
-                    <h3>个人数字化资产堡垒建设</h3>
+                    <h3>数字化资产堡垒建设</h3>
                     <p>基于本地 PyCharm 开发并打通 GitHub Pages / DNS 全链路。作为后续技术博客与“小宇宙”播客的宣发阵地。</p>
                     <span class="card-link">查看建站日志 →</span>
                 </a>
@@ -84,23 +92,24 @@
         </div>
     </section>
 
+    <!-- 第四幕：小杨的闲暇时光 · 星空草莓 -->
     <section id="page4" class="section section-playful">
         <div class="content">
             <h2 class="section-title">🐱 小杨的闲暇时光</h2>
-            <p class="section-subtitle">“大人的世界很复杂，所以我的世界要留点童话”</p>
+            <p class="section-subtitle">“大人的世界很复杂，所以小杨的世界要留点童话”</p>
 
             <div class="diary-container">
                 <div class="diary-card">
-                    <span class="diary-date">🍼 喵主子伺候日记</span>
-                    <p>今日成就：成功用 AI 工具为家里的黑猫剪辑了一支赛博朋克风 Vlog。黑猫看完表示很赞，并一脚踢翻了我的水杯。</p>
+                    <span class="diary-tag">🐾 《黑猫伺候观察日记》</span>
+                    <p>今日成就：成功用 AI 工具为家里的黑猫剪辑了一支赛博朋克风 Vlog。黑猫看完表示很赞，并一脚踢翻了我的拿铁。</p>
                 </div>
                 <div class="diary-card">
-                    <span class="diary-date">🎙️ 声音解密计划</span>
-                    <p>正在筹备“小宇宙”播客栏目。打算和世界聊聊那些关于‘ passion、好奇心与三十岁打工人优雅转弯’的解密故事。</p>
+                    <span class="diary-tag">🎙️ 《小宇宙播客筹备小记》</span>
+                    <p>正在解密那些关于“Passion、好奇心与三十岁优雅转弯”的声音故事，敬请期待我的声音降临。</p>
                 </div>
                 <div class="diary-card">
-                    <span class="diary-date">🌱 终身学习续航</span>
-                    <p>每天一杯拿铁，在 LeetCode 刷两道 SQL 困难题。保持逻辑的大脑，才能在生活里做一个快乐的糊涂蛋。</p>
+                    <span class="diary-tag">🌱 《满血续航充电中》</span>
+                    <p>每天在 LeetCode 刷两道 SQL 困难题。保持逻辑清醒的大脑，才能在生活里做一个快乐的糊涂蛋。</p>
                 </div>
             </div>
 
@@ -110,6 +119,7 @@
         </div>
     </section>
 
+    <!-- 极简滚动联动脚本：让右侧圆点随着滑动自动变色亮起 -->
     <script>
         const dots = document.querySelectorAll('.dot');
         const sections = document.querySelectorAll('.section');
