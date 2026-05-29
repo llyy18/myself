@@ -3,71 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页 | Portfolio</title>
+    <title>Iris Yang | 保持真诚，奔赴热爱</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">PORTFOLIO</div>
-        <nav>
-            <ul>
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#skills">专业技能</a></li>
-                <li><a href="#contact">联系我</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="page-indicator">
+        <a href="#page1" class="dot active" data-title="首页 · 启航"></a>
+        <a href="#page2" class="dot" data-title="试验场 · 进化"></a>
+        <a href="#page3" class="dot" data-title="叠甲 · 迎战"></a>
+        <a href="#page4" class="dot" data-title="闲暇 · 蓄能"></a>
+    </div>
 
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>你好，我是 <span class="highlight">Iris</span></h1>
-            <p>一位专注于数据治理、商业分析与项目管理的资深解密者</p>
-            <a href="#contact" class="btn">与我联络</a>
+    <section id="page1" class="section section-warm">
+        <div class="content animated-fade">
+            <p class="greeting">Hello World, 我是</p>
+            <h1 class="my-name">Iris Yang</h1>
+            <div class="slogan-box">
+                <p class="slogan-en">"Keep it real, chase the thrill."</p>
+                <p class="slogan-zh">保持真诚，奔赴热爱</p>
+            </div>
+            <p class="intro-p">阳光洒在键盘上的温度，就是我和这个世界对话的起点。</p>
+            <div class="scroll-arrow">↓ 向上滑动，解密小杨的平行宇宙</div>
         </div>
     </section>
 
-    <section id="about" class="about-section">
-        <h2>关于我 / About Me</h2>
-        <hr class="divider">
-        <p class="about-text">
-            我热衷于从纷繁复杂的数据中“解密”出核心商业价值。拥有跨行业的项目管理经验，擅长将混乱的业务需求梳理为标准化的数据产品与高效的业务流。保持敏锐，追求卓越。
-        </p>
-    </section>
+    <section id="page2" class="section section-witty">
+        <div class="content">
+            <h2 class="section-title">🧪 小杨的试验场</h2>
+            <p class="section-subtitle">“在不确定的世界里，折腾出确定的好玩”</p>
 
-    <section id="skills" class="skills-section">
-        <h2>专业技能 / Skills</h2>
-        <hr class="divider">
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>数据分析与治理</h3>
-                <p>熟练运用 Hive SQL, MySQL 等工具进行大规模数据清洗、归一化及窗口函数复杂计算，构建高效的数据资产。</p>
-            </div>
-            <div class="skill-card">
-                <h3>项目管理 (PMO)</h3>
-                <p>具备敏捷开发与大型项目全生命周期管理能力，擅长跨部门协同、风险控制与业务体系化落地。</p>
-            </div>
-            <div class="skill-card">
-                <h3>商业分析 (BA)</h3>
-                <p>擅长通过指标建模与长尾数据挖掘，将多源错位数据转化为清晰的商业洞察与经营看板。</p>
+            <div class="timeline">
+                <div class="time-node">
+                    <span class="node-year">2018 · 起航</span>
+                    <p class="node-desc">北交大硕士毕业，怀揣着改变世界的梦想（和还没掉的头发），一脚踹进数据汪洋。</p>
+                </div>
+                <div class="time-node">
+                    <span class="node-year">2018 - 2023 · 闯荡</span>
+                    <p class="node-desc">从航空航天的大型云端数据流，到在线教育的百万级长尾指标，疯狂刷怪升级。</p>
+                </div>
+                <div class="time-node">
+                    <span class="node-year">2023 - 2025 · 掌舵</span>
+                    <p class="node-desc">在光大银行化身“催命 PM”与“数仓推演家”，日常在‘这不合理’与‘这居然跑通了’之间极限拉扯。</p>
+                </div>
+                <div class="time-node">
+                    <span class="node-year">2025.07 - Now · 进化中</span>
+                    <p class="node-desc">开启高含金量 Gap 状态！目前正专注于把一只黑猫培养成网红、把 SQL 玩出艺术感，以及高调寻找下一个 WLB 的欧企港湾。</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>联系我 / Contact</h2>
-        <hr class="divider">
-        <p>期待与您探讨关于数据标准化、商业分析或任何有趣的个人IP项目！</p>
-        <div class="contact-info">
-            <p>📧 邮箱：your-email@example.com</p>
-            <p>📍 坐标：中国 · 上海</p>
+    <section id="page3" class="section section-rigorous">
+        <div class="content">
+            <h2 class="section-title">🛡️ 小杨的叠甲过程</h2>
+            <p class="section-subtitle">SELECT * FROM Iris_Capabilities WHERE state = 'Excellent'</p>
+
+            <div class="project-grid">
+                <a href="https://github.com" target="_blank" class="project-card">
+                    <div class="card-badge">Data Science</div>
+                    <h3>千万级多源错位数据清洗项目</h3>
+                    <p>利用 Hive SQL 窗口函数与归一化算法，解决全渠道销售指标口径不一痛点，降维打击数据孤岛。</p>
+                    <span class="card-link">查看技术复盘 →</span>
+                </a>
+
+                <a href="https://github.com" target="_blank" class="project-card">
+                    <div class="card-badge">PMO & Agile</div>
+                    <h3>跨部门卓越运营与流程标准化</h3>
+                    <p>作为核心项目负责人，主导全生命周期管理，重塑敏捷开发排期体系，将跨部门交付效率提升 20%。</p>
+                    <span class="card-link">查看管理方法论 →</span>
+                </a>
+
+                <a href="你的自定义域名" target="_blank" class="project-card">
+                    <div class="card-badge">Personal IP</div>
+                    <h3>个人数字化资产堡垒建设</h3>
+                    <p>基于本地 PyCharm 开发并打通 GitHub Pages / DNS 全链路。作为后续技术博客与“小宇宙”播客的宣发阵地。</p>
+                    <span class="card-link">查看建站日志 →</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Your Name. Powered by Gemini Workspace.</p>
-    </footer>
+    <section id="page4" class="section section-playful">
+        <div class="content">
+            <h2 class="section-title">🐱 小杨的闲暇时光</h2>
+            <p class="section-subtitle">“大人的世界很复杂，所以我的世界要留点童话”</p>
 
+            <div class="diary-container">
+                <div class="diary-card">
+                    <span class="diary-date">🍼 喵主子伺候日记</span>
+                    <p>今日成就：成功用 AI 工具为家里的黑猫剪辑了一支赛博朋克风 Vlog。黑猫看完表示很赞，并一脚踢翻了我的水杯。</p>
+                </div>
+                <div class="diary-card">
+                    <span class="diary-date">🎙️ 声音解密计划</span>
+                    <p>正在筹备“小宇宙”播客栏目。打算和世界聊聊那些关于‘ passion、好奇心与三十岁打工人优雅转弯’的解密故事。</p>
+                </div>
+                <div class="diary-card">
+                    <span class="diary-date">🌱 终身学习续航</span>
+                    <p>每天一杯拿铁，在 LeetCode 刷两道 SQL 困难题。保持逻辑的大脑，才能在生活里做一个快乐的糊涂蛋。</p>
+                </div>
+            </div>
+
+            <footer class="mini-footer">
+                <p>Designed with 🤍 by Iris Yang | 坐标：上海·浦东</p>
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        const dots = document.querySelectorAll('.dot');
+        const sections = document.querySelectorAll('.section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - window.innerHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('href').slice(1) === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
