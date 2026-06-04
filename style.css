@@ -54,8 +54,9 @@ body {
    第一幕：首页 · 晨曦暖阳风格（粉橘温暖渐变）
    ========================================================================== */
 /* ==================== 方案三：首页双重宇宙分栏样式 ==================== */
+/* ==================== 方案：极简神秘流光首页样式 ==================== */
 
-/* 确保每一幕都是满屏高且定位正常 */
+/* 每一幕基础设定 */
 .section {
     position: relative;
     min-height: 100vh;
@@ -63,209 +64,128 @@ body {
     overflow: hidden;
 }
 
-#page1.section-split-hero {
-    padding: 0 !important; /* 首页不需要普通容器的内边距 */
-}
-
-/* 主分栏包裹盒 */
-.split-container {
+/* 首页神秘暗黑容器 */
+#page1.section-mysterious-hero {
+    background: linear-gradient(135deg, #090d16 0%, #111827 100%);
     display: flex;
-    width: 100%;
-    height: 100vh;
-    transition: all 0.5s ease;
-}
-
-/* 共有分栏样式 */
-.split-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px 40px;
+    padding: 0 !important;
+}
+
+/* --- 动态粒子背景效果 --- */
+.bg-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(234, 88, 12, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+/* 定义四个不同大小和轨迹的缓慢漂浮光斑 */
+.p1 { width: 300px; height: 300px; top: 10%; left: 15%; animation: floatSlow 12s infinite alternate ease-in-out; }
+.p2 { width: 450px; height: 450px; bottom: 15%; right: 10%; background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 70%); animation: floatSlow 18s infinite alternate-reverse ease-in-out; }
+.p3 { width: 200px; height: 200px; bottom: 10%; left: 30%; animation: floatSlow 15s infinite alternate ease-in-out 2s; }
+.p4 { width: 250px; height: 250px; top: 20%; right: 25%; animation: floatSlow 14s infinite alternate-reverse ease-in-out 1s; }
+
+@keyframes floatSlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(40px, -60px) scale(1.1); opacity: 0.6; }
+    100% { transform: translate(-20px, 30px) scale(0.9); opacity: 0.4; }
+}
+
+/* --- 核心文字排版与占位 --- */
+.hero-content {
     text-align: center;
-    position: relative;
-    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
-    cursor: pointer;
+    z-index: 10; /* 确保文字在光斑上方 */
+    padding: 0 20px;
+    animation: heroFadeIn 1.5s ease-out;
 }
 
-/* --- 左侧：理性解密者 --- */
-.side-left {
-    background-color: #0f172a; /* 深邃暗黑蓝 */
-    color: #f1f5f9;
-}
-/* 左侧科技蓝霓虹微光 */
-.side-left::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.15), transparent 60%);
-    pointer-events: none;
-}
-.side-left .greeting { color: #38bdf8; font-family: monospace; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; }
-.side-left .my-name { color: #ffffff; }
-
-/* --- 右侧：感性创作者 --- */
-.side-right {
-    background-color: #fde8df; /* 温暖杏色 */
-    color: #1e293b;
-}
-/* 右侧晨曦暖阳微光 */
-.side-right::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 70% 70%, rgba(234, 88, 12, 0.1), transparent 60%);
-    pointer-events: none;
-}
-.side-right .greeting { color: #ea580c; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; }
-.side-right .my-name { color: #1e293b; }
-
-/* 内部基础文字排版 */
-.side-content {
-    max-width: 420px;
-    transition: transform 0.5s ease;
-    z-index: 2;
-}
-.my-name {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin: 15px 0;
-    letter-spacing: -1px;
-}
-.slogan-box { margin-bottom: 25px; }
-.slogan-zh { font-size: 1.15rem; font-weight: 500; margin-bottom: 5px; }
-.slogan-en { font-size: 0.9rem; opacity: 0.6; font-style: italic; }
-.intro-p { font-size: 0.95rem; line-height: 1.8; opacity: 0.75; }
-
-/* 卡片各自的底部弱提示文字 */
-.side-hint {
-    position: absolute;
-    bottom: 80px;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
+/* “小杨同学”大字设计：极具张力的流光渐变 */
+.hero-name {
+    font-size: 5rem; /* 大字号占位 */
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffffff 30%, #fde8df 70%, #ea580c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ==================== 核心高级交互效果 ==================== */
-/* 鼠标滑过左边：左边拉伸，右边缩小模糊并变灰 */
-.split-container:has(.side-left:hover) .side-left { flex: 1.35; }
-.split-container:has(.side-left:hover) .side-left .side-hint { opacity: 0.8; }
-.split-container:has(.side-left:hover) .side-right { flex: 0.65; filter: blur(3px) grayscale(50%); opacity: 0.5; }
+/* Slogan 盒子排版 */
+.hero-slogan-box {
+    opacity: 0.9;
+}
+.hero-slogan-zh {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #e2e8f0;
+    letter-spacing: 8px; /* 拉开字距，更具呼吸感和高级感 */
+    margin-bottom: 10px;
+    padding-left: 8px; /* 平衡右侧因字距产生的空白 */
+}
+.hero-slogan-en {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    font-style: italic;
+    letter-spacing: 2px;
+}
 
-/* 鼠标滑过右边：右边拉伸，左边缩小模糊并变灰 */
-.split-container:has(.side-right:hover) .side-right { flex: 1.35; }
-.split-container:has(.side-right:hover) .side-right .side-hint { opacity: 0.8; }
-.split-container:has(.side-right:hover) .side-left { flex: 0.65; filter: blur(3px) grayscale(70%); opacity: 0.4; }
+/* 入场淡入动效 */
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
 
-
-/* ==================== 绝对置底的滑动指示箭头 ==================== */
+/* --- 绝对置底的滑动提示（在深色背景下高亮） --- */
 #page1 .scroll-arrow {
     position: absolute !important;
-    bottom: 25px !important;
+    bottom: 30px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     font-size: 0.85rem !important;
-    color: #ea580c !important; /* 温暖橙，在黑白底色中间都很醒目 */
+    color: #ea580c !important; /* 核心暖橙提示色 */
     font-weight: 600 !important;
+    letter-spacing: 1px;
     z-index: 999 !important;
     text-align: center !important;
     white-space: nowrap;
-    pointer-events: none; /* 防止挡住鼠标悬停卡片 */
+    pointer-events: none;
     animation: bouncePage1 2s infinite;
+    opacity: 0.8;
 }
 
-/* 独立动画，避免多层平移冲突 */
 @keyframes bouncePage1 {
     0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
     40% { transform: translate(-50%, -8px); }
     60% { transform: translate(-50%, -4px); }
 }
 
-
-/* ==================== 移动端响应式降级（双栏变上下排） ==================== */
+/* 响应式适配：手机端缩放字体 */
 @media (max-width: 768px) {
-    .split-container {
-        flex-direction: column;
+    .hero-name {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
     }
-    .split-side {
-        padding: 40px 20px;
+    .hero-slogan-zh {
+        font-size: 1.15rem;
+        letter-spacing: 4px;
     }
-    .my-name { font-size: 2rem; margin: 8px 0; }
-    .slogan-zh { font-size: 1rem; }
-    .intro-p { font-size: 0.85rem; line-height: 1.6; }
-    .side-hint { display: none; } /* 移动端隐藏小提示 */
-
-    /* 移动端轻微上下挤压即可 */
-    .split-container:has(.side-left:hover) .side-left,
-    .split-container:has(.side-right:hover) .side-right { flex: 1.2; }
-    .split-container:has(.side-left:hover) .side-right,
-    .split-container:has(.side-right:hover) .side-left { flex: 0.8; filter: none; opacity: 0.8; }
-}
-#page1 {
-    position: relative; /* 确立定位基准 */
-    min-height: 100vh;  /* 核心：让父容器的高度至少等于整个浏览器屏幕的高度(100vh) */
-}
-.section-warm {
-    background: linear-gradient(135deg, #fff5eb 0%, #ffe3d1 50%, #ffd2cc 100%);
-}
-
-.greeting {
-    font-size: 1.4rem;
-    color: #eab308;
-    font-weight: 600;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.my-name {
-    font-size: 4.8rem;
-    color: #0f172a;
-    font-weight: 800;
-    margin-bottom: 25px;
-    letter-spacing: -1px;
-}
-
-.slogan-box {
-    border-left: 4px solid #f97316;
-    padding-left: 20px;
-    display: inline-block;
-    text-align: left;
-    margin-bottom: 35px;
-}
-
-.slogan-zh {
-    font-size: 1.6rem;
-    color: #ea580c;
-    font-weight: 600;
-    letter-spacing: 6px;
-}
-
-.slogan-en {
-    font-family: "Georgia", serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #64748b;
-    margin-top: 6px;
-}
-
-.intro-p {
-    font-size: 1.15rem;
-    color: #475569;
-    line-height: 1.6;
-}
-
-.scroll-arrow {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.9rem;
-    color: #ea580c;
-    font-weight: 500;
-    animation: bounce 2s infinite;
+    .hero-slogan-en {
+        font-size: 0.85rem;
+    }
+    .particle {
+        transform: scale(0.6); /* 手机端缩小光斑 */
+    }
 }
 
 /* ==========================================================================
