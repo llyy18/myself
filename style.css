@@ -105,13 +105,13 @@ body {
 
 .scroll-arrow {
     position: absolute;
-    bottom: 5px;       /* 距离页面底部 20 像素，可以根据视觉效果调整 */
-    left: 50%;          /* 居中定位 */
-    transform: translateX(-50%); /* 完美的水平居中平衡 */
-
-    text-align: center; /* 确保文字自身居中 */
-    width: 100%;        /* 撑满宽度，方便居中 */
-    z-index: 10;        /* 确保它层级在上层，不会被其他元素遮挡 */
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #ea580c;
+    font-weight: 500;
+    animation: bounce 2s infinite;
 }
 
 /* ==========================================================================
